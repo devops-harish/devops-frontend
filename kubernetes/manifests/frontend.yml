@@ -12,12 +12,18 @@ spec:
       labels:
         app: frontend
     spec:
-      nodeName: ip-10-0-1-85.ap-south-1.compute.internal
       containers:
         - name: frontend
           image: public.ecr.aws/o8s7i5y4/zocket-frontend:latest
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
           env:
             - name: REACT_APP_BACKEND_URL
               value: "http://backend-service:8000"

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: your-frontend-image:tag
+          image: public.ecr.aws/o8s7i5y4/zocket-frontend:latest
           ports:
             - containerPort: 80
           resources:

@@ -12,6 +12,7 @@ spec:
       labels:
         app: frontend
     spec:
+      nodeName: ip-10-0-1-85.ap-south-1.compute.internal
       containers:
         - name: frontend
           image: public.ecr.aws/o8s7i5y4/zocket-frontend:latest

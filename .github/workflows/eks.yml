@@ -52,10 +52,10 @@ jobs:
       - name: Deploy Kubernetes Application
         run: |
               kubectl get pods
-              # kubectl exec rontend-deployment-7c7584bcdf-hzt6v -- sh -c "curl http://backend-service/api/tasks"
-              # kubectl exec rontend-deployment-7c7584bcdf-hzt6v -- sh -c "printenv | grep REACT_APP_BACKEND_URL"
-              kubectl delete pod rontend-deployment-7c7584bcdf-hzt6v --force
-              # kubectl logs rontend-deployment-7c7584bcdf-hzt6v --tail=20
+              # kubectl exec frontend-deployment-7c7584bcdf-hzt6v -- sh -c "curl http://backend-service/api/tasks"
+              # kubectl exec frontend-deployment-7c7584bcdf-hzt6v -- sh -c "printenv | grep REACT_APP_BACKEND_URL"
+              kubectl delete pod frontend-deployment-7c7584bcdf-hzt6v --force
+              # kubectl logs frontend-deployment-7c7584bcdf-hzt6v --tail=20
               kubectl replace -f kubernetes/manifests/frontend.yml --force
 
       - name: Get Service Endpoint

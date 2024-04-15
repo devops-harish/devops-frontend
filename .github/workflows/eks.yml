@@ -54,7 +54,7 @@ jobs:
               kubectl get pods
               # kubectl exec frontend-deployment-7c7584bcdf-xf8tz -- sh -c "curl http://backend-service/api/tasks"
               # kubectl exec frontend-deployment-7c7584bcdf-xf8tz -- sh -c "printenv | grep REACT_APP_BACKEND_URL"
-              kubectl delete frontend-deployment-7c7584bcdf-xf8tz --force
+              kubectl delete pod frontend-deployment-7c7584bcdf-xf8tz --force
               kubectl apply -f kubernetes/manifests/frontend.yml --force
 
       - name: Get Service Endpoint

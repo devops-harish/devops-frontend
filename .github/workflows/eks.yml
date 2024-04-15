@@ -52,11 +52,11 @@ jobs:
       - name: Deploy Kubernetes Application
         run: |
               kubectl get pods
-              # kubectl exec frontend-deployment-7c7584bcdf-gmslj -- sh -c "curl http://backend-service/api/tasks"
-              # kubectl exec frontend-deployment-7c7584bcdf-gmslj -- sh -c "printenv | grep REACT_APP_BACKEND_URL"
-              kubectl delete pod frontend-deployment-7c7584bcdf-gmslj --force
-              # kubectl logs frontend-deployment-7c7584bcdf-gmslj --tail=20
-              kubectl apply -f kubernetes/manifests/frontend.yml --force
+              # kubectl exec frontend-deployment-7c7584bcdf-6n42q -- sh -c "curl http://backend-service/api/tasks"
+              kubectl exec frontend-deployment-7c7584bcdf-6n42q -- sh -c "printenv | grep REACT_APP_BACKEND_URL"
+              # kubectl delete pod frontend-deployment-7c7584bcdf-6n42q --force
+              kubectl logs frontend-deployment-7c7584bcdf-6n42q --tail=20
+              # kubectl apply -f kubernetes/manifests/frontend.yml --force
 
       - name: Get Service Endpoint
         run: |

@@ -3,6 +3,7 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install yarn
 COPY . .
+COPY .env .env
 RUN yarn install 
 RUN yarn build
 

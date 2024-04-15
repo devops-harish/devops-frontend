@@ -12,7 +12,7 @@ function App() {
   const fetchTasks = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/tasks`
       );
       const jsonData = await response.json();
       setTasks(jsonData);
@@ -25,7 +25,7 @@ function App() {
     if (!newTask) return;
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/tasks`,
         {
           method: "POST",
           headers: {

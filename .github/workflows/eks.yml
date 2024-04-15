@@ -51,10 +51,11 @@ jobs:
 
       - name: Deploy Kubernetes Application
         run: |
+              kubectl get pods
+              kubectl exec -it frontend-deployment-8c6776dff-9w96p -- sh -c "curl http://backend-service:8000/api/tasks"
               kubectl apply -f kubernetes/manifests/frontend.yml --force
 
       - name: Get Service Endpoint
         run: |
-               kubectl get nodes -o wide
                kubectl get pods
                kubectl get svc

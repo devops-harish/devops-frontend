@@ -53,8 +53,8 @@ jobs:
         run: |
               kubectl get pods
               kubectl get svc
-              # kubectl exec frontend-deployment-8c6776dff-9w96p -- sh -c "curl http://backend-service/api/tasks"
-              kubectl apply -f kubernetes/manifests/frontend.yml --force
+              kubectl exec frontend-deployment-7c7584bcdf-9dtcx -- sh -c "curl http://backend-service/api/tasks"
+              # kubectl apply -f kubernetes/manifests/frontend.yml --force
 
       - name: Get Service Endpoint
         run: |

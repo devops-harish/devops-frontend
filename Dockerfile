@@ -2,7 +2,7 @@ FROM node:20.0-alpine as build-deps
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install yarn
-COPY . ./
+COPY . .
 RUN yarn install 
 RUN yarn build
 

@@ -5,7 +5,9 @@ metadata:
 data:
   .env: |
     REACT_APP_BACKEND_URL=http://backend-service
+
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -20,6 +22,10 @@ spec:
       labels:
         app: frontend
     spec:
+      volumes:
+        - name: frontend-env  # Define the volume with the correct name
+          configMap:
+            name: frontend-env  # Reference the ConfigMap name
       containers:
         - name: frontend
           image: public.ecr.aws/o8s7i5y4/zocket-frontend:latest
@@ -40,7 +46,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: frontend
 spec:
   type: LoadBalancer
   ports:

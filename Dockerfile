@@ -1,13 +1,14 @@
-FROM node:20.0-alpine as build-deps
+# Stage 1: Build the Node.js application
+FROM node:alpine as build-deps
 WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
-RUN npm install yarn
-COPY . ./
-RUN yarn install 
-RUN yarn build
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
 
+# Stage 2: Serve the built application with Nginx
 FROM nginx:alpine
-
 COPY --from=build-deps /usr/src/app/build /usr/share/nginx/html
+COPY .env /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

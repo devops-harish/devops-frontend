@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: your-frontend-image:tag
+          image: public.ecr.aws/o8s7i5y4/zocket-frontend:latest
           ports:
             - containerPort: 80
           resources:
@@ -26,12 +26,12 @@ spec:
               cpu: "100m"
           env:
             - name: REACT_APP_BACKEND_URL
-              value: "http://backend-service:8000"
+              value: "http://backend-service/api/tasks"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
+  name: frontend-service
 spec:
   type: LoadBalancer
   ports:

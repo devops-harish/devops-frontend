@@ -52,8 +52,8 @@ jobs:
       - name: Deploy Kubernetes Application
         run: |
               kubectl get pods
-              # kubectl exec frontend-deployment-6875d57c84-2j9vr -- sh -c "curl http://backend-service/api/tasks"
-              kubectl exec frontend-deployment-6875d57c84-2j9vr -- sh -c "printenv | grep REACT_APP_BACKEND_URL"
+              kubectl exec frontend-deployment-6875d57c84-2j9vr -- sh -c "curl http://backend-service/api/tasks"
+              # kubectl exec frontend-deployment-6875d57c84-2j9vr -- sh -c "printenv | grep REACT_APP_BACKEND_URL"
               kubectl logs frontend-deployment-6875d57c84-2j9vr --tail=20
               # kubectl replace -f kubernetes/manifests/frontend.yml --force
 

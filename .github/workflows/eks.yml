@@ -53,11 +53,11 @@ jobs:
         run: |
               kubectl get svc
               kubectl get pods
-              kubcetl delete pod backend-deployment-877f559c8-9ptk4 --force
+              kubectl delete pod backend-deployment-877f559c8-9ptk4 --force
               # kubectl delete svc frontend --force
               # kubectl exec frontend-deployment-6b4fc594b8-48clx -- sh -c "curl http://172.20.206.80:8000/api/tasks"
               # kubectl exec frontend-deployment-6b4fc594b8-48clx -- sh -c "printenv | grep REACT_APP_BACKEND_URL"
-              kubectl logs frontend-deployment-6b4fc594b8-48clx --tail=20
+              # kubectl logs frontend-deployment-6b4fc594b8-48clx --tail=20
               # kubectl replace -f kubernetes/manifests/frontend.yml --force
 
       - name: Get Service Endpoint

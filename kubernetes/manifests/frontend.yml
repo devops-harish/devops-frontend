@@ -43,7 +43,7 @@ spec:
               subPath: .env
           env:
             - name: REACT_APP_BACKEND_URL
-              value: "http://backend-service/api/tasks"
+              value: "http://172.20.206.80:8000"
 ---
 apiVersion: v1
 kind: Service
